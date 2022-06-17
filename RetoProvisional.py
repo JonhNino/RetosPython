@@ -1,29 +1,53 @@
-N=int(input("Numero de Productos"))
-total_iva=0
-totalcompra=0
-for i in range(N):
-    codigo=int(input("Codigo Producto"))
-    nombre=input("Nombre Producto")
-    CantidadComprada=int(input("Cantidad Comprada"))
-    ValorUnitario=int(input("Valor Unitario"))
-    Tipo_Iva=int(input("Tipo Iva"))
-    ValorProducto = ValorUnitario * CantidadComprada
-    if Tipo_Iva==1:
-        ValorIVa=0
-    elif Tipo_Iva==2:
-        ValorIVa = ValorProducto *0.05
-
-    else :
-        ValorIVa=ValorProducto*0.19
+lista_codigo=[]
+lista_nombre=[]
+lista_cantidad_comprada=[]
+lista_valor_unitario=[]
+lista_tipo_iva=[]
+lista_valor_producto=[]
+lista_valor_iva=[]
+lista_valor_final=[]
 
 
-    TotalIva=ValorProducto+ValorIVa
-    total_iva=total_iva+ValorIVa
-    totalcompra = totalcompra + TotalIva
-    print(codigo)
-    print(nombre)
-    print("{:.1f}".format(ValorProducto))
-    print("{:.1f}".format(TotalIva))
+N=int(input())
+total_ivas=0
+total_compra=0
 
-print("total Compra","{:.1f}".format(totalcompra))
-print("total de los iva","{:.1f}".format(total_iva))
+for i in range(N):  
+    codigo=int(input())
+    nombre=input()
+    cantidad_comprada=float(input())
+    valor_unitario=float(input())
+    tipo_iva=int(input())
+    lista_codigo.append(codigo)
+    lista_nombre.append(nombre)
+    lista_cantidad_comprada.append(cantidad_comprada)
+    lista_valor_unitario.append(valor_unitario)
+    lista_tipo_iva.append(tipo_iva)    
+print(len(lista_codigo))
+print(len(lista_nombre))
+print(len(lista_cantidad_comprada))
+print(len(lista_valor_unitario))
+print(len(lista_tipo_iva))
+
+
+for x in range(N):
+    valor_productos=lista_cantidad_comprada[x]*lista_valor_unitario[x]
+    lista_valor_producto.append(valor_productos)
+    if lista_tipo_iva[x] ==1:
+        valor_iva=0
+    elif lista_tipo_iva[x] ==2:
+        valor_iva=0.05*valor_productos
+    elif lista_tipo_iva[x] ==3:
+        valor_iva=0.19*valor_productos
+    lista_valor_iva.append(valor_iva)
+    valor_final=valor_productos+valor_iva
+    lista_valor_final.append(valor_final)
+    total_ivas+=valor_iva
+    total_compra+=valor_final
+    print(lista_codigo[x])
+    print(lista_nombre[x])
+    print(valor_productos)
+    print(valor_final)
+ 
+print(total_compra)
+print(total_ivas)
