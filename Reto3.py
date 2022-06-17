@@ -26,8 +26,8 @@ for i in range(N):
     lista_cantidad_comprada.append(cantidad_comprada)
     lista_valor_unitario.append(valor_unitario)
     lista_tipo_iva.append(tipo_iva)
-    lista_valor_producto=lista_cantidad_comprada*lista_valor_unitario
-    lista_valor_producto.append(valor_producto)
+    
+    
     
 print(len(lista_codigo))
 print(len(lista_nombre))
