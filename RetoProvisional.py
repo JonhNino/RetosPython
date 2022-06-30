@@ -24,7 +24,7 @@ def ordenamiento_burbuja(lista_codigo,lista_nombre,lista_valor_iva,lista_valor_p
                 lista_valor_final[j]=temp4
     return lista_codigo,lista_nombre,lista_valor_iva,lista_valor_producto,lista_valor_final
 
-#Programa Principal
+
 lista_codigo=[]
 lista_nombre=[]
 lista_cantidad_comprada=[]
@@ -35,7 +35,7 @@ lista_valor_iva=[]
 lista_valor_final=[]
 
 
-N=int(input("Cantidad Productos"))
+N=int(input())
 total_ivas=0
 total_compra=0
 
@@ -69,7 +69,6 @@ lista_codigo,lista_nombre,lista_valor_iva,lista_valor_producto,lista_valor_final
 for x in range(N):
     print(lista_codigo[x])
     print(lista_nombre[x])
-   # print(lista_valor_iva[x])
     print(lista_valor_producto[x])
     print(lista_valor_final[x])
 
