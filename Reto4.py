@@ -36,6 +36,7 @@ def ordenamiento_burbuja(lista_codigo,lista_nombre,lista_valor_iva,lista_valor_p
     return lista_codigo,lista_nombre,lista_valor_iva,lista_valor_producto,lista_valor_final
 
 #Programa Principal
+#Creacion Listas Vacias
 lista_codigo=[]
 lista_nombre=[]
 lista_cantidad_comprada=[]
@@ -76,7 +77,9 @@ for x in range(N):
     lista_valor_final.append(valor_final)
     total_ivas+=valor_iva
     total_compra+=valor_final
+#llamar Funcion Ordenar
 lista_codigo,lista_nombre,lista_valor_iva,lista_valor_producto,lista_valor_final=ordenamiento_burbuja(lista_codigo,lista_nombre,lista_valor_iva,lista_valor_producto,lista_valor_final)
+#Se imprimen las listas ordenadas
 print("Listas Ordenadas")
 for x in range(N):
     print("Codigo Ordenado LIsta",lista_codigo[x])

@@ -1,10 +1,8 @@
-def ordenamiento_burbuja(lista_codigo,lista_nombre,lista_valor_iva,lista_valor_producto,lista_valor_final):
+
+def ordenamiento_burbuja(lista_codigo,lista_valor_iva,lista_valor_final):
     for i in range(N-1):
         for j in range(i+1,N):
-            if lista_nombre[i]>lista_nombre[j]:
-                temp=lista_nombre[i]
-                lista_nombre[i]=lista_nombre[j]
-                lista_nombre[j]=temp
+            if lista_codigo[i]>lista_codigo[j]:
                 temp1=lista_codigo[i]
                 lista_codigo[i]=lista_codigo[j]
                 lista_codigo[j]=temp1
@@ -12,19 +10,17 @@ def ordenamiento_burbuja(lista_codigo,lista_nombre,lista_valor_iva,lista_valor_p
                 temp2=lista_valor_iva[i]
                 lista_valor_iva[i]=lista_valor_iva[j]
                 lista_valor_iva[j]=temp2
-
+           
                 
-                temp3=lista_valor_producto[i]
-                lista_valor_producto[i]=lista_valor_producto[j]
-                lista_valor_producto[j]=temp3
-
                 
                 temp4=lista_valor_final[i]
                 lista_valor_final[i]=lista_valor_final[j]
                 lista_valor_final[j]=temp4
-    return lista_codigo,lista_nombre,lista_valor_iva,lista_valor_producto,lista_valor_final
+    return lista_codigo,lista_valor_iva,lista_valor_final
 
 
+articulos={1:"Lapiz",2:"Cuaderno",3:"Borrador",4:"Regla",5:"ColoresX12",6:"Escuadra",7:"Calculadora",8:"CrayonesX6"}
+precios={1:2500,2:4500,3:1500,4:5000,5:24000,6:4700,7:45000,8:8900}
 lista_codigo=[]
 lista_nombre=[]
 lista_cantidad_comprada=[]
@@ -41,18 +37,18 @@ total_compra=0
 
 for i in range(N):  
     codigo=int(input())
-    nombre=input()
+ 
     cantidad_comprada=float(input())
-    valor_unitario=float(input())
+ 
     tipo_iva=int(input())
     lista_codigo.append(codigo)
-    lista_nombre.append(nombre)
+
     lista_cantidad_comprada.append(cantidad_comprada)
-    lista_valor_unitario.append(valor_unitario)
-    lista_tipo_iva.append(tipo_iva)    
+
+    lista_tipo_iva.append(tipo_iva)   
 
 for x in range(N):
-    valor_productos=lista_cantidad_comprada[x]*lista_valor_unitario[x]
+    valor_productos=lista_cantidad_comprada[x]*precios.get(lista_codigo[x])
     lista_valor_producto.append(valor_productos)
     if lista_tipo_iva[x] ==1:
         valor_iva=0
@@ -65,12 +61,16 @@ for x in range(N):
     lista_valor_final.append(valor_final)
     total_ivas+=valor_iva
     total_compra+=valor_final
-lista_codigo,lista_nombre,lista_valor_iva,lista_valor_producto,lista_valor_final=ordenamiento_burbuja(lista_codigo,lista_nombre,lista_valor_iva,lista_valor_producto,lista_valor_final)
+
+lista_codigo,lista_valor_iva,lista_valor_final=ordenamiento_burbuja(lista_codigo,lista_valor_iva,lista_valor_final)
+
+
 for x in range(N):
     print(lista_codigo[x])
-    print(lista_nombre[x])
+    print(articulos[lista_codigo[x]])
     print(lista_valor_producto[x])
     print(lista_valor_final[x])
 
 print(total_compra)
 print(total_ivas)
+
